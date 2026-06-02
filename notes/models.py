@@ -8,3 +8,4 @@ class Notes(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     count_likes = models.PositiveSmallIntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
+    is_public = models.BooleanField(default=False)

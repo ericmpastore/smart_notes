@@ -17,6 +17,14 @@ def add_like_view(request,pk):
         return HttpResponseRedirect(reverse("notes.detail", args=(pk,)))
     raise Http404
 
+def change_visibility_view(request,pk):
+    if request.method == 'POST':
+        note = get_object_or_404(Notes, pk=pk)
+        note.is_public = not note.is_public
+        note.save()
+        return HttpResponseRedirect(reverse("notes.detail", args=(pk,)))
+    raise Http404
+
 class NotesDeleteView(DeleteView):
     model = Notes
     success_url = '/smart/notes'
