@@ -65,6 +65,11 @@ class NotesDetailView(DetailView):
     model = Notes
     context_object_name = "note"
 
+class NotesPublicDetailView(DetailView):
+    model = Notes
+    context_object_name = "note"
+    queryset = Notes.objects.filter(is_public=True)
+
 def detail(request,pk):
     try:
         note = Notes.objects.get(pk=pk)

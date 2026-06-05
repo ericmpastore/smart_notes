@@ -10,4 +10,5 @@ urlpatterns = [
     path('notes/<int:pk>/delete',views.NotesDeleteView.as_view(), name="notes.delete"),
     path('notes/<int:pk>/add_like',views.add_like_view, name="notes.add_like"),
     path('notes/<int:pk>/change_visibility',views.change_visibility_view, name="notes.change_visibility"),
+    path('notes/<int:pk>/share',views.NotesPublicDetailView.as_view(), name="notes.share"),
 ]
